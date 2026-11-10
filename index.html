@@ -15,7 +15,7 @@
 :root{
   --navy:#13294B; --navy-2:#1C3866; --gold:#F2B705; --gold-ink:#8A6400;
   --bg:#F5F6F8; --card:#FFFFFF; --ink:#13294B; --ink-2:#4A5568; --line:#D9DEE6; --soft:#EBEEF3;
-  --c-obras:#C98F00; --c-loja:#0E8C7F; --c-jur:#8C2F4B; --ok:#1E7A4F; --bad:#B42318;
+  --c-obras:#C98F00; --c-loja:#0E8C7F; --c-jur:#8C2F4B; --c-serv:#5B4BC4; --ok:#1E7A4F; --bad:#B42318;
   --on-navy:#FFFFFF; --on-navy-2:#C9D2E0;
   --f-display:"Space Grotesk","Segoe UI",system-ui,sans-serif;
   --f-body:"Archivo","Segoe UI",system-ui,sans-serif;
@@ -23,9 +23,9 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0D1626; --card:#15213A; --ink:#E8EDF5; --ink-2:#A9B4C6; --line:#2A3A57; --soft:#1A2843; --gold-ink:#F2B705;
-  --c-obras:#F2B705; --c-loja:#2BC4B0; --c-jur:#E07A98; --ok:#5CC48F; --bad:#F2877A; --navy:#0A1424; --navy-2:#13294B; color-scheme:dark}}
+  --c-obras:#F2B705; --c-loja:#2BC4B0; --c-jur:#E07A98; --c-serv:#A79BF5; --ok:#5CC48F; --bad:#F2877A; --navy:#0A1424; --navy-2:#13294B; color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#0D1626; --card:#15213A; --ink:#E8EDF5; --ink-2:#A9B4C6; --line:#2A3A57; --soft:#1A2843; --gold-ink:#F2B705;
-  --c-obras:#F2B705; --c-loja:#2BC4B0; --c-jur:#E07A98; --ok:#5CC48F; --bad:#F2877A; --navy:#0A1424; --navy-2:#13294B; color-scheme:dark}
+  --c-obras:#F2B705; --c-loja:#2BC4B0; --c-jur:#E07A98; --c-serv:#A79BF5; --ok:#5CC48F; --bad:#F2877A; --navy:#0A1424; --navy-2:#13294B; color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 body{margin:0}
@@ -75,7 +75,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .mock .ic{flex:none;width:44px;height:44px;border-radius:10px;background:#0A1830;display:grid;place-items:center}
 
 /* produtos */
-.prods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:36px}
+.prods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:36px}
 .prod{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:14px;min-width:0}
 .prod .hd{display:flex;align-items:center;gap:12px}
 .prod .sq{flex:none;width:44px;height:44px;border-radius:10px;background:#13294B;display:grid;place-items:center}
@@ -202,12 +202,13 @@ footer b{color:#fff}
       <div class="acts"><a class="btn btn-gold" href="#teste">Testar grátis por 30 dias</a><a class="btn btn-line" href="#planos">Ver planos</a></div>
       <small>Sem cartão de crédito para testar. Todas as plataformas liberadas, até 5 usuários.</small>
     </div>
-    <div class="mock" aria-label="As três plataformas do Atlas Gestão">
+    <div class="mock" aria-label="As plataformas do Atlas Gestão">
       <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="pl">
         <div><span class="ic"><svg viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><path d="M50 8 L92 92 L72 92 L50 46 L28 92 L8 92 Z" fill="#fff"/><rect x="14" y="62" width="72" height="11" rx="2" fill="#F2B705"/></svg></span><span><b>Obras</b><span>Entradas e saídas por obra, orçamentos, propostas e produtividade</span></span></div>
         <div><span class="ic"><svg viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><path d="M50 8 L92 92 L72 92 L50 46 L28 92 L8 92 Z" fill="#fff"/><rect x="14" y="62" width="72" height="11" rx="2" fill="#2BC4B0"/></svg></span><span><b>Marketplace</b><span>Vendas, compras, estoque, recibos e o caixa da loja</span></span></div>
         <div><span class="ic"><svg viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><path d="M50 8 L92 92 L72 92 L50 46 L28 92 L8 92 Z" fill="#fff"/><rect x="14" y="62" width="72" height="11" rx="2" fill="#E07A98"/></svg></span><span><b>Jurídico</b><span>Processos, prazos, intimações e o financeiro do escritório</span></span></div>
+        <div><span class="ic"><svg viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><path d="M50 8 L92 92 L72 92 L50 46 L28 92 L8 92 Z" fill="#fff"/><rect x="14" y="62" width="72" height="11" rx="2" fill="#8C7CF0"/></svg></span><span><b>Serviços</b><span>Seu marketplace: pedidos, orçamentos e comissão</span></span></div>
       </div>
     </div>
   </div>
@@ -217,7 +218,7 @@ footer b{color:#fff}
 <section id="produtos" aria-labelledby="prodT">
   <div class="wrap">
     <div class="kicker">PRODUTOS</div>
-    <h2 id="prodT">Feito por quem toca obra, loja e escritório</h2>
+    <h2 id="prodT">Feito por quem toca obra, loja, escritório e serviço</h2>
     <p class="lead">Cada plataforma resolve o dia a dia de um tipo de negócio. Você assina só a que precisa, ou todas no Combo.</p>
     <div class="prods">
       <article class="prod">
@@ -246,6 +247,16 @@ footer b{color:#fff}
           <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="var(--c-jur)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Clientes, processos, prazos e intimações</li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="var(--c-jur)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Atendimentos, tarefas e agenda da equipe</li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="var(--c-jur)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Honorários e financeiro, com acesso restrito para estagiários</li>
+        </ul>
+      </article>
+      <article class="prod">
+        <div class="hd"><span class="sq"><svg viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><path d="M50 8 L92 92 L72 92 L50 46 L28 92 L8 92 Z" fill="#fff"/><rect x="14" y="62" width="72" height="11" rx="2" fill="#8C7CF0"/></svg></span><h3>Atlas Gestão Serviços</h3></div>
+        <p>Para quem quer ter o próprio marketplace de serviços: clientes pedem, prestadores orçam e você fica com a comissão.</p>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="var(--c-serv)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Site pronto: o cliente descreve o serviço com fotos e vídeos</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="var(--c-serv)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Prestadores entram pelo CPF e orçam sem ver o orçamento dos outros</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="var(--c-serv)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sua comissão já vai no preço; o contato só sai depois do pagamento</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="var(--c-serv)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Repasse ao prestador só depois que o cliente confirma a conclusão</li>
         </ul>
       </article>
     </div>
@@ -277,10 +288,10 @@ footer b{color:#fff}
     <div>
       <div class="kicker">TESTE GRÁTIS</div>
       <h2 id="testT">30 dias com tudo liberado</h2>
-      <p class="lead">Baixe o programa, clique em “Testar grátis por 30 dias” e use as três plataformas com a sua equipe. Se assinar, é só colar o código: nada do que você lançou se perde.</p>
+      <p class="lead">Baixe o programa, informe o cupom <b class="mono" id="cupomTeste" style="letter-spacing:.05em">BEMVINDO30</b> em “Teste grátis por 30 dias” e use todas as plataformas com a sua equipe. Veio pela indicação de um parceiro? Use o cupom dele. Se assinar, nada do que você lançou se perde.</p>
       <div class="steps">
         <div class="step"><i>1</i><div><h3>Baixe e instale</h3><p>Um único programa para Windows. Na primeira vez, escolha a pasta da empresa no Google Drive.</p></div></div>
-        <div class="step"><i>2</i><div><h3>Teste por 30 dias</h3><p>Obras, Marketplace e Jurídico liberados, até 5 usuários.</p></div></div>
+        <div class="step"><i>2</i><div><h3>Teste por 30 dias</h3><p>Obras, Marketplace, Jurídico e Serviços liberados, até 5 usuários.</p></div></div>
         <div class="step"><i>3</i><div><h3>Assine e continue</h3><p>Escolha o plano, pague por Pix, boleto ou cartão e cole o código que você recebe pelo WhatsApp.</p></div></div>
       </div>
       <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-gold" id="baixar" href="#">Baixar o Atlas Gestão</a><span id="baixarV" style="align-self:center;color:var(--ink-2);font-size:14px"></span></div>
@@ -378,7 +389,7 @@ footer b{color:#fff}
       <details><summary>Posso usar em vários computadores?</summary><p>Sim. Instale em quantos computadores quiser, todos apontando para a mesma pasta. O limite do plano é de usuários ativos: <span class="usuN">5</span> incluídos, e cada usuário a mais custa <span class="extraV">R$ 20</span> por mês.</p></details>
       <details><summary>O que acontece quando o teste acaba?</summary><p>O programa fica só para consulta até você assinar. Nada é apagado. Quando você colar o código da assinatura, tudo volta a funcionar com os mesmos dados.</p></details>
       <details><summary>Como eu pago?</summary><p>Pelo Asaas, por Pix, boleto ou cartão de crédito. No cartão, a cobrança é automática todo mês. Depois de cada pagamento você recebe o código de liberação pelo WhatsApp.</p></details>
-      <details><summary>Qual a diferença entre Basic, Premium e Combo?</summary><p>O Basic é mensal, com uma plataforma à sua escolha. O Premium é anual, também com uma plataforma, pago em 12 parcelas. O Combo libera Obras, Marketplace e Jurídico por 12 meses.</p></details>
+      <details><summary>Qual a diferença entre Basic, Premium e Combo?</summary><p>O Basic é mensal, com uma plataforma à sua escolha. O Premium é anual, também com uma plataforma, pago em 12 parcelas. O Combo libera Obras, Marketplace, Jurídico e Serviços por 12 meses.</p></details>
       <details><summary>Recebo as atualizações?</summary><p>Sim. O programa avisa quando há versão nova e se atualiza sozinho, em todos os planos.</p></details>
     </div>
   </div>
@@ -398,8 +409,9 @@ footer b{color:#fff}
   "use strict";
   var C = window.ATLAS_SITE || {};
   C.planos = C.planos || []; C.cupons = C.cupons || {};
+  if (C.cupomTeste && document.getElementById("cupomTeste")) document.getElementById("cupomTeste").textContent = C.cupomTeste;
   var WA = C.whats || "5575982913561", DES = C.desconto != null ? C.desconto : 10, COM = C.comissao != null ? C.comissao : 15;
-  var PLAT = { obras: "Obras", loja: "Marketplace", jur: "Jurídico" };
+  var PLAT = { obras: "Obras", loja: "Marketplace", jur: "Jurídico", serv: "Serviços" };
   var $ = function (id) { return document.getElementById(id); };
   var brl = function (v) { return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }); };
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
@@ -426,20 +438,22 @@ footer b{color:#fff}
     if (p.periodo === "mensal") return { big: brl(v) + "<small> /mês</small>", sub: "renova todo mês", mes: v };
     return { big: brl(v), sub: p.periodo === "anual" ? "por ano" : "", mes: v / 12 };
   }
+  function cupomVale(p) { return !!cupom && (!cupom.planos || cupom.planos.indexOf(p.id) >= 0); }
   function linkDe(p) {
     var plat = p.escolha ? escolha[p.id] : "todas";
     if (p.escolha && !plat) return null;
     var key = p.id + "|" + plat;
-    return cupom ? (cupom.links || {})[key] || "" : (p.links || {})[plat] || "";
+    return cupomVale(p) ? (cupom.links || {})[key] || "" : (p.links || {})[plat] || "";
   }
   function renderPlanos() {
-    var f = cupom && !cupom.primeira ? (100 - cupom.pct) / 100 : 1;
+    var f0 = cupom && !cupom.primeira ? (100 - cupom.pct) / 100 : 1, f = f0;
     $("plans").innerHTML = C.planos.map(function (p) {
+      var cv = cupomVale(p); f = cv ? f0 : 1;
       var pr = precoPlano(p, f), pr0 = precoPlano(p, 1);
       var pick = p.escolha ? '<div class="pick"><fieldset><legend>Escolha a plataforma</legend>' + p.plats.map(function (k) { return '<label><input type="radio" name="pl-' + esc(p.id) + '" value="' + k + '"' + (escolha[p.id] === k ? " checked" : "") + '> ' + PLAT[k] + '</label>'; }).join(" ") + '</fieldset></div>'
         : '<div class="pick"><span style="font-size:14px;color:var(--ink-2)">Inclui: ' + p.plats.map(function (k) { return PLAT[k]; }).join(", ") + '</span></div>';
       return '<article class="plan' + (p.destaque ? " dest" : "") + '">' + (p.destaque ? '<span class="tag">' + esc(p.destaque.toUpperCase()) + '</span>' : "") +
-        '<h3>' + esc(p.nome) + '</h3><div class="price">' + (cupom && !cupom.primeira ? '<s>' + pr0.big.replace(/<small>.*<\/small>/, "") + '</s>' : "") + '<b>' + pr.big + '</b><span>' + pr.sub + '</span></div>' + (cupom && cupom.primeira ? '<p style="margin:0;font-size:14px;font-weight:600;color:var(--ok)">Primeira cobrança com ' + cupom.pct + '% de desconto: ' + brl(((p.periodo === "anual" && (p.parcelas || 1) > 1) ? p.preco / p.parcelas : p.preco) * (100 - cupom.pct) / 100) + '</p>' : "") + pick +
+        '<h3>' + esc(p.nome) + '</h3><div class="price">' + (cv && !cupom.primeira ? '<s>' + pr0.big.replace(/<small>.*<\/small>/, "") + '</s>' : "") + '<b>' + pr.big + '</b><span>' + pr.sub + '</span></div>' + (cupom && !cv ? '<p style="margin:0;font-size:13.5px;color:var(--ink-2)">O cupom ' + esc(cupom.codigo) + ' não vale para este plano.</p>' : "") + (cv && cupom.primeira ? '<p style="margin:0;font-size:14px;font-weight:600;color:var(--ok)">Primeira cobrança com ' + cupom.pct + '% de desconto: ' + brl(((p.periodo === "anual" && (p.parcelas || 1) > 1) ? p.preco / p.parcelas : p.preco) * (100 - cupom.pct) / 100) + '</p>' : "") + pick +
         '<ul>' + (p.beneficios || []).map(function (b) { return '<li>' + CHECK + '<span>' + esc(b) + '</span></li>'; }).join("") + '</ul>' +
         '<a class="btn btn-gold" data-assinar="' + esc(p.id) + '" href="#" target="_blank" rel="noopener">Assinar ' + esc(p.nome) + '</a></article>';
     }).join("") || '<p>Os planos aparecem aqui em instantes.</p>';
@@ -447,7 +461,7 @@ footer b{color:#fff}
       r.addEventListener("change", function () { escolha[r.name.slice(3)] = r.value; atualizarBotoes(); });
     });
     atualizarBotoes();
-    $("pNote").textContent = C.extra ? "Precisa de mais de " + (C.usuarios || 5) + " usuários? Cada usuário adicional custa " + brl(C.extra * f) + " por mês." : "";
+    $("pNote").textContent = C.extra ? "Precisa de mais de " + (C.usuarios || 5) + " usuários? Cada usuário adicional custa " + brl(C.extra * f0) + " por mês." : "";
   }
   function atualizarBotoes() {
     C.planos.forEach(function (p) {
@@ -456,7 +470,7 @@ footer b{color:#fff}
       if (u === null) { a.setAttribute("aria-disabled", "true"); a.href = "#planos"; a.textContent = "Escolha a plataforma"; a.removeAttribute("target"); return; }
       a.removeAttribute("aria-disabled"); a.textContent = "Assinar " + p.nome; a.target = "_blank";
       if (u) a.href = u;
-      else { var plat = p.escolha ? " (" + PLAT[escolha[p.id]] + ")" : ""; a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Olá! Quero assinar o plano " + p.nome + plat + " do Atlas Gestão." + (cupom ? " Cupom: " + cupom.codigo : "")); }
+      else { var plat = p.escolha ? " (" + PLAT[escolha[p.id]] + ")" : ""; a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Olá! Quero assinar o plano " + p.nome + plat + " do Atlas Gestão." + (cupomVale(p) ? " Cupom: " + cupom.codigo : "")); }
     });
   }
   async function hash(s) {
@@ -464,11 +478,14 @@ footer b{color:#fff}
     var b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
     return Array.prototype.map.call(new Uint8Array(b), function (x) { return ("0" + x.toString(16)).slice(-2); }).join("");
   }
+  function mostrarCupomTeste(cod) { var e = $("cupomTeste"); if (e && cod) e.textContent = cod; }
   async function aplicarCupom(cod, silencioso) {
     cod = norm(cod); var m = $("cupomMsg");
     if (!cod) { cupom = null; guardar("atlas-cupom", null); m.textContent = ""; m.className = "cmsg"; renderPlanos(); return; }
     var h = await hash(cod), c = C.cupons[h];
-    if (c) { cupom = { codigo: cod, pct: c.pct, links: c.links, primeira: !!c.primeira }; guardar("atlas-cupom", cod); m.textContent = "Cupom " + cod + " aplicado: " + c.pct + "% de desconto " + (c.primeira ? "na primeira cobrança." : "em todas as cobranças."); m.className = "cmsg ok"; $("cupomIn").value = cod; }
+    var tt = c && c.teste ? " E dá " + c.teste + " dias de teste grátis: baixe o programa e informe o cupom " + cod + " ao começar o teste." : "";
+    if (c && !(c.pct > 0)) { cupom = null; guardar("atlas-cupom", cod); m.textContent = "Cupom " + cod + ": " + (c.teste || 30) + " dias de teste grátis. Baixe o programa e informe o cupom ao começar o teste."; m.className = "cmsg ok"; $("cupomIn").value = cod; mostrarCupomTeste(cod); }
+    else if (c) { cupom = { codigo: cod, pct: c.pct, links: c.links, primeira: !!c.primeira, planos: c.planos || null }; guardar("atlas-cupom", cod); m.textContent = "Cupom " + cod + " aplicado: " + c.pct + "% de desconto " + (c.primeira ? "na primeira cobrança." : "em todas as cobranças.") + (c.planos && c.planos.length ? " Vale para: " + C.planos.filter(function (p) { return c.planos.indexOf(p.id) >= 0; }).map(function (p) { return p.nome; }).join(", ") + "." : "") + tt; m.className = "cmsg ok"; $("cupomIn").value = cod; if (c.teste) mostrarCupomTeste(cod); }
     else { cupom = null; if (!silencioso) { m.textContent = "Não encontramos o cupom " + cod + ". Confira as letras e os números."; m.className = "cmsg bad"; } guardar("atlas-cupom", null); }
     renderPlanos();
   }
